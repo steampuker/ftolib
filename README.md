@@ -11,7 +11,7 @@ Include the `ftolib.h` and `ftolib.c` files in your project and compile them wit
 
 The API consists of 4 macros:
  - `fto_print(format_string, args...)` - formats `format_string` replacing `"{}"` with `args` and prints it to the standard output.
- - `fto_println(format_string, args...)` - same as print but appends a newline.
+ - `fto_println(format_string, args...)` - same as print but appends a newline to format_string.
  - `fto_print_to(out, format_string, args...)` - same as `print` but instead outputs it to the `out` file stream.
  - `fto_println_to(out, format_string, args...)` - same as `println` but instead outputs it to the `out` file stream.
 
@@ -43,13 +43,15 @@ Error: Bad coding style - true
 ```
 ## Limitations
 
-For every macro, only 16 arguments are supported
+For every macro, only 16 arguments are supported. Exceeding this limit will report some message containing TOO_MANY_ARGUMENTS or will have a weird behavior.
 
-This is still experimental, most of the features (positional arguments, additional formatting, float-to-string conversion, etc.) are missing.
+In case of a syntax error, the diagnostics resemble C++ atrocitites.
 
-It is also not optimized for performance (uses standard print functions instead of OS syscalls).
+This project is still experimental, most of the features (positional arguments, additional formatting, float-to-string conversion, etc.) are missing.
 
-Still, I'd appreciate if you [open an issue](https://github.com/steampuker/print.c/issues).
+It's also not optimized for performance (uses standard print functions instead of OS syscalls).
+
+Still, I'll appreciate if you [open an issue](https://github.com/steampuker/print.c/issues).
 
 ## Related
 
